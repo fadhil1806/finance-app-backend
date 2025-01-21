@@ -28,4 +28,4 @@ const financeSchema = mongoose.Schema(
 
 const Finance = mongoose.model('Finance', financeSchema);
 
-module.exports = Finance;
+module.exports = Finance
