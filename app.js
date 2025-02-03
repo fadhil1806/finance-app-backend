@@ -12,9 +12,11 @@ app.use(express.json());
 
 const userRouter = require('./src/routes/userRoutes')
 const financeRoutes = require('./src/routes/financeRoutes');
+const reminderRoutes = require('./src/routes/reminderRoutes');
 
 app.use('/api', userRouter)
 app.use('/api/finances', financeRoutes);
+app.use('/api/reminder', reminderRoutes);
 
 const PORT = process.env.PORT
-app.listen(PORT, () => console.log(`Server berjalan di port ${PORT}`));
+app.listen(PORT, () => console.log(`server is running`));

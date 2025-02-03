@@ -20,6 +20,11 @@ const financeSchema = mongoose.Schema(
             required: [true, 'Tipe diperlukan'],
             enum: ['income', 'expense'],
         },
+        category: {
+            type: String,
+            required: true,
+            enum: ['salary', 'education', 'health', 'food', 'transportation', 'entertainment', 'utilities', 'others'], // Daftar kategori
+        },
     },
     {
         timestamps: true,

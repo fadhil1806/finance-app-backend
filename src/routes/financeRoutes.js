@@ -7,12 +7,25 @@ const {
   updateFinance,
   deleteFinance,
   financeReport,
+  getFinanceSummary,
+  getCategoryStats,
+  getMonthlyStats,
+  filterFinance
 } = require('../controllers/financeController');
 
-router.get('/', protect, getFinances);
-router.get('/:id', financeReport)
-router.post('/', protect, createFinance);
-router.put('/:id', protect, updateFinance);
-router.delete('/:id', protect, deleteFinance);
+router.route('/').get(protect, getFinances).post(protect, createFinance);
+
+router.route('/:id').get(financeReport).put(protect, updateFinance).delete(protect, deleteFinance);
+
+// router.get('/:id', financeReport)
+// router.put('/:id', protect, updateFinance);
+// router.delete('/:id', protect, deleteFinance);
+
+router.get('/summary/:id', getFinanceSummary);
+router.get('/category-stats/:id', getCategoryStats);
+
+router.get('/filter/:id', filterFinance);
+router.get('/:id/monthly-stats', protect, getMonthlyStats);
+
 
 module.exports = router;
